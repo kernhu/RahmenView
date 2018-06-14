@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!-- 相框 -->
+    <!--<style name="RahmenView">-->
+        <!--<item name="rhv_backgroud">@drawable/bg_rahmen2</item>-->
+        <!--<item name="rhv_image">@drawable/bg_rahmen2</item>-->
+        <!--<item name="rhv_image_width">@dimen/dp20</item>-->
+        <!--<item name="rhv_image_height">@dimen/dp20</item>-->
+        <!--<item name="rhv_image_rotation">-7.5</item>-->
+        <!--<item name="rhv_image_x">@dimen/dp20</item>-->
+        <!--<item name="rhv_image_y">@dimen/dp20</item>-->
+        <!--<item name="rhv_duration">5000</item>-->
+        <!--<item name="rhv_anim">false</item>-->
+    <!--</style>-->
+
+
+</resources>

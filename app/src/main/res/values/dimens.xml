@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sp15">15sp</dimen>
+    <dimen name="sp20">20sp</dimen>
+
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+
+    <dimen name="dp200">200dp</dimen>
+    <dimen name="dp180">180dp</dimen>
+
+    <dimen name="rhv_sp_height">28%</dimen>
+    <dimen name="rhv_sp_width">80%</dimen>
+    <dimen name="rhv_sp_top">23%</dimen>
+    <dimen name="rhv_sp_left">10%</dimen>
+
+    <dimen name="rhv_pw_height">5%</dimen>
+    <dimen name="rhv_pw_width">5%</dimen>
+    <dimen name="rhv_pw_top">20%</dimen>
+    <dimen name="rhv_pw_left">20%</dimen>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.walkpast.rahmenview.MainActivity">
+
+    <TextView
+        android:id="@+id/btn_ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="@dimen/dp5"
+        android:text="RV for AD"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="10%"
+        app:layout_widthPercent="50%"/>
+    <!-- app:layout_marginTopPercent="10%"
+       app:layout_marginLeftPercent="10%"-->
+
+
+    <TextView
+        android:id="@+id/btn_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_ad"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="@dimen/dp5"
+        android:text="RV for photo-wall"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="10%"
+        app:layout_widthPercent="50%"/>
+
+</android.support.percent.PercentRelativeLayout>

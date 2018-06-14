@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RahmenView">
+
+        <attr name="rhv_backgroud" format="reference"/>
+        <attr name="rhv_foreground" format="reference"/>
+        <attr name="rhv_image" format="reference"/>
+        <attr name="rhv_image_width" format="fraction"/>
+        <attr name="rhv_image_height" format="fraction"/>
+        <attr name="rhv_image_rotation" format="float"/>
+        <attr name="rhv_image_x" format="fraction"/>
+        <attr name="rhv_image_y" format="fraction"/>
+        <attr name="rhv_duration" format="integer"/>
+
+        <attr name="rhv_anim" format="boolean"/>
+
+    </declare-styleable>
+
+</resources>
