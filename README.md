@@ -1,7 +1,7 @@
 # RahmenView
 RahmenView looks like a photo frame.You can use it to show your AD or Photos.
 
-![](https://github.com/KernHu/RahmenView/raw/master/screenshot/2018061501.gif)  ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/2018061501.png)  
+![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10010.gif)  ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10011.gif)  
 
 ##  I: How to use
 ### 1.Add the RahmenView to the layout.xml file where you want to display the list;
