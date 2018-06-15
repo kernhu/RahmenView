@@ -12,7 +12,6 @@
         <attr name="rhv_image_x" format="fraction"/>
         <attr name="rhv_image_y" format="fraction"/>
         <attr name="rhv_duration" format="integer"/>
-
         <attr name="rhv_anim" format="boolean"/>
 
     </declare-styleable>

@@ -27,10 +27,6 @@ public class BaseRahmenView extends PercentFrameLayout {
     private int mRahmenDuration;
     private boolean mRahmenAnimMode;
 
-    //the width and heigh of device's screen
-    private int[] mScreenSize;
-
-
     public BaseRahmenView(@NonNull Context context) {
         super(context);
         initAttrs(context, null, 0);
@@ -62,7 +58,6 @@ public class BaseRahmenView extends PercentFrameLayout {
         mRahmenAnimMode = array.getBoolean(R.styleable.RahmenView_rhv_anim, false);
         array.recycle();
 
-        mScreenSize = ViewUtils.getScreenSize(getContext());
     }
 
     public Drawable getRahmenBackgroud() {
@@ -145,8 +140,4 @@ public class BaseRahmenView extends PercentFrameLayout {
         mRahmenAnimMode = rahmenAnimMode;
     }
 
-
-    public int[] getScreenSize() {
-        return mScreenSize;
-    }
 }

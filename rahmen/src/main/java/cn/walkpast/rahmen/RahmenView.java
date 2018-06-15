@@ -2,23 +2,29 @@ package cn.walkpast.rahmen;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 /**
  * Author: Kern
  * Time: 2018/6/13 15:23
- * Description: This is.. a Rahmen for image base FrameLayout
+ * Description: This is.. a Rahmen for image base PercentFrameLayout
  */
 
 public class RahmenView extends BaseRahmenView {
 
+    private static final String TAG = "RahmenView";
     private OnRahmenListener listener;
     private ImageView mImageView;
     private LayoutParams mImageParams;
+    private int mParentWidth;
+    private int mParentHeight;
 
     public RahmenView(@NonNull Context context) {
         super(context);
@@ -38,14 +44,27 @@ public class RahmenView extends BaseRahmenView {
         initView();
     }
 
+    public static int[] getParentSize(View view) {
+
+        int[] screenSize = new int[2];
+        //获取SingleTouchView所在父布局的中心点
+        ViewGroup mViewGroup = (ViewGroup) view.getParent();
+        if (null != mViewGroup) {
+            screenSize[0] = mViewGroup.getWidth();
+            screenSize[1] = mViewGroup.getHeight();
+        }
+        return screenSize;
+    }
+
     protected void initView() {
 
         LayoutParams mParentParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        /**创建一个ImageView，将iamgeview插入布局*/
+        /** create a imageview and add into PercentFrameLayout*/
         mImageView = new ImageView(getContext());
+
         //mParentParams.gravity = Gravity.CENTER_HORIZONTAL;
         this.addView(mImageView, mParentParams);
-        /**点击事件*/
+        /**event callback*/
         mImageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +73,6 @@ public class RahmenView extends BaseRahmenView {
                 }
             }
         });
-        /**长按事件*/
         mImageView.setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -65,92 +83,116 @@ public class RahmenView extends BaseRahmenView {
             }
         });
 
-        /**插入背景图*/
-        setRahmenBackgroud(getRahmenBackgroud());
-        /**设置图片、背景、倾斜角度*/
+        /**set backgroud and foreground */
+        if (getRahmenBackgroud() != null) {
+            setRahmenBackgroud(getRahmenBackgroud());
+        } else {
+            setRahmenForeground(getRahmenForeground());
+        }
+
+        /**set the image for the ImageView*/
         setRahmenImage(getRahmenImage());
-        /**设置图片倾斜角度*/
+        /**set the rotation the value(0~360,0~-360)*/
         setRahmenImageRotation(getRahmenImageRotation());
         mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        mImageView.bringToFront();
+        mImageView.setVisibility(View.GONE);
 
-        /**设置ImageView位置、宽高、边距*/
+        /**set size and margin for the iamge*/
         mImageParams = (LayoutParams) mImageView.getLayoutParams();
         //mImageParams.gravity = Gravity.CENTER;
-        mImageParams.width = (int) (getScreenSize()[0] * getRahmenImageWidth());
-        mImageParams.height = (int) (getScreenSize()[1] * getRahmenImageHeight());
-        mImageParams.topMargin = (int) (getScreenSize()[1] * getRahmenImageY());
-        mImageParams.leftMargin = (int) (getScreenSize()[0] * getRahmenImageX());
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+
+        mParentWidth = w;
+        mParentHeight = h;
+        mImageParams.width = (int) (mParentWidth * getRahmenImageWidth());
+        mImageParams.height = (int) (mParentHeight * getRahmenImageHeight());
+        mImageParams.topMargin = (int) (mParentHeight * getRahmenImageY());
+        mImageParams.leftMargin = (int) (mParentWidth * getRahmenImageX());
+        Log.e("sos", "---onSizeChanged-----mParentWidth=" + (mParentWidth * getRahmenImageWidth()) + ";;;mParentHeight=" + (mParentHeight * getRahmenImageHeight()));
         mImageView.setLayoutParams(mImageParams);
-        //动画
-        // AnimUtils.setAlpha(mImageView, 1000, listener);
+        mImageView.invalidate();
+        mImageView.setVisibility(View.VISIBLE);
+
     }
 
     public ImageView getImageView() {
-
-        invalidate();
         return mImageView;
     }
 
     @Override
     public void setRahmenBackgroud(Drawable rahmenBackgroud) {
         super.setRahmenBackgroud(rahmenBackgroud);
+        this.setForeground(null);
         this.setBackgroundDrawable(getRahmenBackgroud());
     }
 
     @Override
     public void setRahmenForeground(Drawable rahmenForeground) {
         super.setRahmenForeground(rahmenForeground);
-        this.setForeground(getRahmenBackgroud());
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            this.setBackground(null);
+            this.setForeground(getRahmenForeground());
+        } else {
+            Log.e(TAG, "the version is under 6.0");
+        }
     }
 
     @Override
     public void setRahmenImage(Drawable rahmenImage) {
         super.setRahmenImage(rahmenImage);
         mImageView.setImageDrawable(rahmenImage);
-        mImageView.invalidate();
     }
 
     @Override
     public void setRahmenImageRotation(float rahmenImageRotation) {
         super.setRahmenImageRotation(rahmenImageRotation);
         mImageView.setRotation(rahmenImageRotation);
-        mImageView.invalidate();
     }
 
     @Override
     public void setRahmenImageHeight(float rahmenImageHeight) {
         super.setRahmenImageHeight(rahmenImageHeight);
-        mImageParams.height = (int) (getScreenSize()[1] * getRahmenImageHeight());
-        mImageView.invalidate();
+        mImageParams.height = (int) (mParentHeight * getRahmenImageHeight());
     }
 
     @Override
     public void setRahmenImageWidth(float rahmenImageWidth) {
         super.setRahmenImageWidth(rahmenImageWidth);
-        mImageParams.width = (int) (getScreenSize()[0] * getRahmenImageWidth());
+        mImageParams.width = (int) (mParentWidth * getRahmenImageWidth());
         mImageView.invalidate();
     }
 
     @Override
     public void setRahmenImageX(float rahmenImageX) {
         super.setRahmenImageX(rahmenImageX);
-        mImageParams.topMargin = (int) (getScreenSize()[1] * getRahmenImageY());
+        mImageParams.topMargin = (int) (mParentHeight * getRahmenImageY());
         mImageView.invalidate();
     }
 
     @Override
     public void setRahmenImageY(float rahmenImageY) {
         super.setRahmenImageY(rahmenImageY);
-        mImageParams.leftMargin = (int) (getScreenSize()[0] * getRahmenImageX());
+        mImageParams.leftMargin = (int) (mParentWidth * getRahmenImageX());
         mImageView.invalidate();
     }
 
     public void addOnRahmenListener(OnRahmenListener listener) {
         this.listener = listener;
+        if (getRahmenAnimMode()) {
+            AnimUtils.setAlpha(mImageView, getRahmenDuration(), listener);
+        }
     }
 
     public void setOnRahmenListener(OnRahmenListener listener) {
         this.listener = listener;
+        if (getRahmenAnimMode()) {
+            AnimUtils.setAlpha(mImageView, getRahmenDuration(), listener);
+        }
     }
 
 }

@@ -2,6 +2,8 @@ package cn.walkpast.rahmen;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * Author: Kern
@@ -22,4 +24,15 @@ public class ViewUtils {
         return screenSize;
     }
 
+    public static int[] getParentSize(View view) {
+
+        int[] screenSize = new int[2];
+        //获取SingleTouchView所在父布局的中心点
+        ViewGroup mViewGroup = (ViewGroup) view.getParent();
+        if (null != mViewGroup) {
+            screenSize[0] = mViewGroup.getWidth();
+            screenSize[1] = mViewGroup.getHeight();
+        }
+        return screenSize;
+    }
 }
