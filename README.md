@@ -6,11 +6,6 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
 ##  I: How to use
 ### 1.Add the RahmenView to the layout.xml file where you want to display the list;
 
-
-    <!--    app:rhv_image="@drawable/sample_plot_3" -->
-    <!--    app:rhv_backgroud="@drawable/bg_rahmen_2"-->
-    <!--    app:rhv_foreground="@drawable/fg_rahmen_1" -->
-    
       <cn.walkpast.rahmen.RahmenView
         android:id="@+id/rahmen_view_ad"
         android:layout_width="match_parent"
@@ -24,24 +19,31 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
         app:rhv_image_width="@dimen/rhv_sp_width"
         app:rhv_image_x="@dimen/rhv_sp_left"
         app:rhv_image_y="@dimen/rhv_sp_top"/>
+		
+		
+    <!--    app:rhv_image="@drawable/sample_plot_3" -->
+    <!--    app:rhv_backgroud="@drawable/bg_rahmen_2"-->
+    <!--    app:rhv_foreground="@drawable/fg_rahmen_1" -->
 	
 
 ### 2.If you want use the event;
 
- mRahmenView.setOnRahmenListener(mOnRahmenListener);
+
+  mRahmenView.setOnRahmenListener(mOnRahmenListener);
   OnRahmenListener mOnRahmenListener = new OnRahmenListener() {
         @Override
-        public void onClick(View view) {
-            super.onClick(view);
-         
-        }
-
+    
         @Override
         public void onLongClick(View view) {
             super.onLongClick(view);
            
         }
+	public void onClick(View view) {
+            super.onClick(view);
+         
+        }
     };
+
 
 ### 3.You also can set ....;
 
