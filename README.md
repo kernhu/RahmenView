@@ -30,7 +30,7 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
 
 
   mRahmenView.setOnRahmenListener(mOnRahmenListener);
-  --------
+
   OnRahmenListener mOnRahmenListener = new OnRahmenListener() {
         @Override
     
@@ -44,7 +44,7 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
          
         }
     };
-------------
+
 
 ### 3.You also can set ....;
 
