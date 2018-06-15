@@ -18,3 +18,4 @@ public class PhotoWallActivity extends AppCompatActivity {
     }
 
 }
+
