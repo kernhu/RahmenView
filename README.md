@@ -3,10 +3,15 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
 
 ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/2018061501.gif)  ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/2018061501.png)  
 
-## How to use
+##  I: How to use
 ### 1.Add the RahmenView to the layout.xml file where you want to display the list;
 
-  <cn.walkpast.rahmen.RahmenView
+
+    <!--    app:rhv_image="@drawable/sample_plot_3" -->
+    <!--    app:rhv_backgroud="@drawable/bg_rahmen_2"-->
+    <!--    app:rhv_foreground="@drawable/fg_rahmen_1" -->
+    
+      <cn.walkpast.rahmen.RahmenView
         android:id="@+id/rahmen_view_ad"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,10 +24,7 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
         app:rhv_image_width="@dimen/rhv_sp_width"
         app:rhv_image_x="@dimen/rhv_sp_left"
         app:rhv_image_y="@dimen/rhv_sp_top"/>
-
-    <!--    app:rhv_image="@drawable/sample_plot_3" -->
-    <!--    app:rhv_backgroud="@drawable/bg_rahmen_2"-->
-    <!--    app:rhv_foreground="@drawable/fg_rahmen_1" -->
+	
 
 ### 2.If you want use the event;
 
@@ -53,7 +55,7 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
         mRahmenView.setRahmenBackgroud();
 
 
-## Add RahmenView to your project
+## II: Add RahmenView to your project
 ### Step 1. Add the JitPack repository to your build file; Add it in your root build.gradle at the end of repositories:
 
 allprojects {
@@ -62,7 +64,7 @@ allprojects {
         maven { url 'https://jitpack.io' }
         }
         }
-## Step 2. Add the dependency
+### Step 2. Add the dependency
 
 	dependencies {
 	        implementation 'com.github.KernHu:RahmenView:v1.0'
