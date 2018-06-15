@@ -1,55 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <cn.walkpast.rahmen.RahmenView
         android:id="@+id/rahmen_view_1"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/dp5"
-        app:rhv_backgroud="@drawable/bg_rahmen_1"
+        android:layout_weight="1"
         app:rhv_duration="1000"
-        app:rhv_image_height="@dimen/rhv_pw_height"
-        app:rhv_image_rotation="-10"
-        app:rhv_image_width="@dimen/rhv_pw_width"
-        app:rhv_image_x="10%"
-        app:rhv_image_y="10%"/>
+        app:rhv_foreground="@drawable/fg_rahmen_2"
+        app:rhv_image="@drawable/sample_plot_5"
+        app:rhv_image_height="50%"
+        app:rhv_image_rotation="-8"
+        app:rhv_image_width="80%"
+        app:rhv_image_x="16%"
+        app:rhv_image_y="20%"/>
 
     <cn.walkpast.rahmen.RahmenView
         android:id="@+id/rahmen_view_2"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_above="@id/rahmen_view_1"
-        android:layout_alignParentLeft="true"
         android:layout_margin="@dimen/dp5"
+        android:layout_weight="1"
+        app:rhv_backgroud="@drawable/bg_rahmen_3"
         app:rhv_duration="1000"
-        app:rhv_foreground="@drawable/fg_rahmen_1"
-        app:rhv_image="@drawable/sample_plot_5"
-        app:rhv_image_height="@dimen/rhv_pw_height"
-        app:rhv_image_rotation="-10"
-        app:rhv_image_width="@dimen/rhv_pw_width"
-        app:rhv_image_x="10%"
-        app:rhv_image_y="10%"/>
+        app:rhv_image="@drawable/sample_plot_6"
+        app:rhv_image_height="65%"
+        app:rhv_image_rotation="-8"
+        app:rhv_image_width="70%"
+        app:rhv_image_x="16%"
+        app:rhv_image_y="20%"/>
 
     <cn.walkpast.rahmen.RahmenView
         android:id="@+id/rahmen_view_3"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:layout_alignParentRight="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@id/rahmen_view_1"
         android:layout_margin="@dimen/dp5"
-        app:rhv_backgroud="@drawable/bg_rahmen_1"
+        android:layout_weight="1"
+        app:rhv_backgroud="@drawable/bg_rahmen_4"
         app:rhv_duration="1000"
-        app:rhv_image_height="@dimen/rhv_pw_height"
-        app:rhv_image_rotation="-10"
-        app:rhv_image_width="@dimen/rhv_pw_width"
-        app:rhv_image_x="10%"
-        app:rhv_image_y="10%"/>
+        app:rhv_image="@drawable/sample_plot_1"
+        app:rhv_image_height="80%"
+        app:rhv_image_rotation="0"
+        app:rhv_image_width="65%"
+        app:rhv_image_x="18%"
+        app:rhv_image_y="14%"/>
 
 
-</RelativeLayout>
+</LinearLayout>

@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 /**
@@ -22,7 +23,6 @@ public class RahmenView extends BaseRahmenView {
     private static final String TAG = "RahmenView";
     private OnRahmenListener listener;
     private ImageView mImageView;
-    private LayoutParams mImageParams;
     private int mParentWidth;
     private int mParentHeight;
 
@@ -99,8 +99,6 @@ public class RahmenView extends BaseRahmenView {
         mImageView.setVisibility(View.GONE);
 
         /**set size and margin for the iamge*/
-        mImageParams = (LayoutParams) mImageView.getLayoutParams();
-        //mImageParams.gravity = Gravity.CENTER;
     }
 
     @Override
@@ -109,15 +107,44 @@ public class RahmenView extends BaseRahmenView {
 
         mParentWidth = w;
         mParentHeight = h;
-        mImageParams.width = (int) (mParentWidth * getRahmenImageWidth());
-        mImageParams.height = (int) (mParentHeight * getRahmenImageHeight());
-        mImageParams.topMargin = (int) (mParentHeight * getRahmenImageY());
-        mImageParams.leftMargin = (int) (mParentWidth * getRahmenImageX());
-        Log.e("sos", "---onSizeChanged-----mParentWidth=" + (mParentWidth * getRahmenImageWidth()) + ";;;mParentHeight=" + (mParentHeight * getRahmenImageHeight()));
-        mImageView.setLayoutParams(mImageParams);
-        mImageView.invalidate();
-        mImageView.setVisibility(View.VISIBLE);
 
+        mImageView.setVisibility(View.VISIBLE);
+        setChildMargins((int) (mParentWidth * getRahmenImageX()), (int) (mParentHeight * getRahmenImageY()));
+        setChildSize((int) (mParentWidth * getRahmenImageWidth()), (int) (mParentHeight * getRahmenImageHeight()));
+    }
+
+    /**
+     * @param left
+     * @param top
+     */
+    private void setChildMargins(final int left, final int top) {
+
+        mImageView.post(new Runnable() {
+            @Override
+            public void run() {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                layoutParams.setMargins(left, top, 0, 0);
+                mImageView.setLayoutParams(layoutParams);
+            }
+        });
+
+    }
+
+    /**
+     * @param width
+     * @param height
+     */
+    private void setChildSize(final int width, final int height) {
+
+        mImageView.post(new Runnable() {
+            @Override
+            public void run() {
+                ViewGroup.LayoutParams lp = mImageView.getLayoutParams();
+                lp.width = width;
+                lp.height = height;
+                mImageView.setLayoutParams(lp);
+            }
+        });
     }
 
     public ImageView getImageView() {
@@ -157,28 +184,25 @@ public class RahmenView extends BaseRahmenView {
     @Override
     public void setRahmenImageHeight(float rahmenImageHeight) {
         super.setRahmenImageHeight(rahmenImageHeight);
-        mImageParams.height = (int) (mParentHeight * getRahmenImageHeight());
+        setChildSize((int) (mParentHeight * getRahmenImageWidth()), (int) (mParentHeight * rahmenImageHeight));
     }
 
     @Override
     public void setRahmenImageWidth(float rahmenImageWidth) {
         super.setRahmenImageWidth(rahmenImageWidth);
-        mImageParams.width = (int) (mParentWidth * getRahmenImageWidth());
-        mImageView.invalidate();
+        setChildSize((int) (mParentHeight * rahmenImageWidth), (int) (mParentHeight * getRahmenImageHeight()));
     }
 
     @Override
     public void setRahmenImageX(float rahmenImageX) {
         super.setRahmenImageX(rahmenImageX);
-        mImageParams.topMargin = (int) (mParentHeight * getRahmenImageY());
-        mImageView.invalidate();
+        setChildMargins((int) (mParentHeight * rahmenImageX), (int) (mParentHeight * getRahmenImageY()));
     }
 
     @Override
     public void setRahmenImageY(float rahmenImageY) {
         super.setRahmenImageY(rahmenImageY);
-        mImageParams.leftMargin = (int) (mParentWidth * getRahmenImageX());
-        mImageView.invalidate();
+        setChildMargins((int) (mParentHeight * getRahmenImageX()), (int) (mParentHeight * rahmenImageY));
     }
 
     public void addOnRahmenListener(OnRahmenListener listener) {

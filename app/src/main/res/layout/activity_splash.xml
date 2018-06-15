@@ -24,6 +24,8 @@
     <!--    app:rhv_backgroud="@drawable/bg_rahmen_2"-->
     <!--  app:rhv_foreground="@drawable/fg_rahmen_1" -->
 
+
+    <!-- bottom button  -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"

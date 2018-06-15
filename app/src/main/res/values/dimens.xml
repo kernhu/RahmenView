@@ -9,13 +9,9 @@
     <dimen name="dp200">200dp</dimen>
     <dimen name="dp180">180dp</dimen>
 
-    <dimen name="rhv_sp_height">28%</dimen>
+    <dimen name="rhv_sp_height">30%</dimen>
     <dimen name="rhv_sp_width">80%</dimen>
-    <dimen name="rhv_sp_top">23%</dimen>
+    <dimen name="rhv_sp_top">26%</dimen>
     <dimen name="rhv_sp_left">10%</dimen>
 
-    <dimen name="rhv_pw_height">5%</dimen>
-    <dimen name="rhv_pw_width">5%</dimen>
-    <dimen name="rhv_pw_top">20%</dimen>
-    <dimen name="rhv_pw_left">20%</dimen>
 </resources>
