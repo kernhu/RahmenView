@@ -32,7 +32,7 @@
         app:rhv_backgroud="@drawable/bg_rahmen_3"
         app:rhv_duration="1000"
         app:rhv_image="@drawable/sample_plot_6"
-        app:rhv_image_height="65%"
+        app:rhv_image_height="50%"
         app:rhv_image_rotation="-8"
         app:rhv_image_width="70%"
         app:rhv_image_x="16%"
