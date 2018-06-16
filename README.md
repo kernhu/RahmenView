@@ -1,5 +1,5 @@
 # RahmenView
-RahmenView looks like a photo frame.You can use it to show your AD or Photos.
+RahmenView looks like a photo frame.You can use it to show your AD or Photos.It's base on PercentFrameLayout, so it ealily to fit any different resolution screens.
 
 ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10010.gif)  ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10011.gif)  
 
@@ -28,10 +28,8 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
 
 ### 2.If you want use the event;
 
-
-  mRahmenView.setOnRahmenListener(mOnRahmenListener);
-
-  OnRahmenListener mOnRahmenListener = new OnRahmenListener() {
+      mRahmenView.setOnRahmenListener(mOnRahmenListener);
+      OnRahmenListener mOnRahmenListener = new OnRahmenListener() {
         @Override
     
         @Override
@@ -61,12 +59,13 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
 ## II: Add RahmenView to your project
 ### Step 1. Add the JitPack repository to your build file; Add it in your root build.gradle at the end of repositories:
 
-allprojects {
+	allprojects {
         repositories {
         ...
         maven { url 'https://jitpack.io' }
         }
         }
+	
 ### Step 2. Add the dependency
 
 	dependencies {
