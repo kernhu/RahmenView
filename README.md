@@ -3,7 +3,8 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.It'
 
 RahmenViev像一个相框模版，你可以用来展示广告图片或者照片，它基于百分比布局，因为可以很好的适配一些不同分辨率的屏幕。它还可以通过Glide来加载网络图片。
 
-![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10010.gif)  ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10011.gif)  
+![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10010.gif)  
+![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10011.gif)  
 
 ##  I: How to use RahmenView.
 ### 1.Add the RahmenView to the layout.xml file where you want to display the list;
@@ -84,7 +85,7 @@ RahmenViev像一个相框模版，你可以用来展示广告图片或者照片�
 ## III: Contact me
 
 Email: sky580@126.com  
-I‘m kern....
+I'm kern....
 
 
 
