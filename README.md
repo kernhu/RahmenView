@@ -29,7 +29,7 @@ RahmenViev像一个相框模版，你可以用来展示广告图片或者照片�
     <!--    app:rhv_foreground="@drawable/fg_rahmen_1" -->
 	
 
-### 2.How to use the event;
+### 2.use the event;
 
       mRahmenView.setOnRahmenListener(mOnRahmenListener);
       OnRahmenListener mOnRahmenListener = new OnRahmenListener() {
