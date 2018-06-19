@@ -50,11 +50,11 @@ RahmenViev像一个相框模版，你可以用来展示广告图片或者照片�
 ### 3.You also can set ....;
 
   	mRahmenView.setRahmenImage();
-        mRahmenView.getRahmenImageHeight()
-        mRahmenView.setRahmenImageWidth();
-        mRahmenView.getRahmenImageY()
-        mRahmenView.setRahmenImageY();
-        mRahmenView.setRahmenImageRotation();
+        mRahmenView.getRahmenImageHeight(0.3f)//the percent of screen
+        mRahmenView.setRahmenImageWidth(0.3f);
+        mRahmenView.getRahmenImageY(0.3f)
+        mRahmenView.setRahmenImageY(0.3f);
+        mRahmenView.setRahmenImageRotation(-7);
         mRahmenView.setRahmenForeground();
         mRahmenView.setRahmenBackgroud();
 	
