@@ -94,7 +94,7 @@ public class RahmenView extends BaseRahmenView {
         setRahmenImage(getRahmenImage());
         /**set the rotation the value(0~360,0~-360)*/
         setRahmenImageRotation(getRahmenImageRotation());
-        mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         mImageView.bringToFront();
         mImageView.setVisibility(View.GONE);
 
