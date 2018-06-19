@@ -1,9 +1,12 @@
 # RahmenView
-RahmenView looks like a photo frame.You can use it to show your AD or Photos.
+RahmenView looks like a photo frame.You can use it to show your AD or Photos.It's base on PercentFrameLayout, so it ealily to fit any different resolution screens.It also can use Glide to load online picture.
 
-![](https://github.com/KernHu/RahmenView/raw/master/screenshot/2018061501.gif)  ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/2018061501.png)  
+RahmenViev像一个相框模版，你可以用来展示广告图片或者照片，它基于百分比布局，因此可以很好的适配一些不同分辨率的屏幕。它还可以通过Glide来加载网络图片。
 
-##  I: How to use
+![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10010.gif)  
+![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10011.gif)  
+
+##  I: How to use RahmenView.
 ### 1.Add the RahmenView to the layout.xml file where you want to display the list;
 
       <cn.walkpast.rahmen.RahmenView
@@ -26,12 +29,10 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
     <!--    app:rhv_foreground="@drawable/fg_rahmen_1" -->
 	
 
-### 2.If you want use the event;
+### 2.use the event;
 
-
-  mRahmenView.setOnRahmenListener(mOnRahmenListener);
-
-  OnRahmenListener mOnRahmenListener = new OnRahmenListener() {
+      mRahmenView.setOnRahmenListener(mOnRahmenListener);
+      OnRahmenListener mOnRahmenListener = new OnRahmenListener() {
         @Override
     
         @Override
@@ -56,19 +57,39 @@ RahmenView looks like a photo frame.You can use it to show your AD or Photos.
         mRahmenView.setRahmenImageRotation();
         mRahmenView.setRahmenForeground();
         mRahmenView.setRahmenBackgroud();
+	
+	//load image
+	 Glide.with(this)
+                .load(url)
+                .placeholder(R.drawable.sample_plot_1)
+                .into(mRahmenView.getImageView());
 
 
 ## II: Add RahmenView to your project
+
 ### Step 1. Add the JitPack repository to your build file; Add it in your root build.gradle at the end of repositories:
 
-allprojects {
+	allprojects {
         repositories {
         ...
         maven { url 'https://jitpack.io' }
         }
         }
+	
 ### Step 2. Add the dependency
 
 	dependencies {
 	        implementation 'com.github.KernHu:RahmenView:v1.0'
 	}
+	
+## III: Contact me
+
+Email: sky580@126.com  
+I'm kern....
+
+
+
+
+
+
+
