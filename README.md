@@ -86,6 +86,7 @@ RahmenViev像一个相框模版，你可以用来展示广告图片或者照片�
 
 Email: vsky580@gmail.com  
 Facebook: https://www.facebook.com/kern.hu.580
+
 QQ群：812492960
 
 I'm kern....
