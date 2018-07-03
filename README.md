@@ -50,11 +50,11 @@ RahmenViev像一个相框模版，你可以用来展示广告图片或者照片�
 ### 3.You also can set ....;
 
   	mRahmenView.setRahmenImage();
-        mRahmenView.getRahmenImageHeight()
-        mRahmenView.setRahmenImageWidth();
-        mRahmenView.getRahmenImageY()
-        mRahmenView.setRahmenImageY();
-        mRahmenView.setRahmenImageRotation();
+        mRahmenView.getRahmenImageHeight(0.3f)//the percent of screen
+        mRahmenView.setRahmenImageWidth(0.3f);
+        mRahmenView.getRahmenImageY(0.3f)
+        mRahmenView.setRahmenImageY(0.3f);
+        mRahmenView.setRahmenImageRotation(-7);
         mRahmenView.setRahmenForeground();
         mRahmenView.setRahmenBackgroud();
 	
@@ -79,14 +79,19 @@ RahmenViev像一个相框模版，你可以用来展示广告图片或者照片�
 ### Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.KernHu:RahmenView:v1.0'
+	        implementation 'com.github.KernHu:RahmenView:v1.1'
 	}
 	
 ## III: Contact me
 
-Email: sky580@126.com  
+Email: vsky580@gmail.com  
+Facebook: https://www.facebook.com/kern.hu.580
+
+QQ群：812492960
+
 I'm kern....
 
+If it helps you,please give me a star.如果有帮助到你，请给我一个小星星。
 
 
 
