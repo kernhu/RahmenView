@@ -57,6 +57,8 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
         mRahmenView.setOnRahmenListener(mOnRahmenListener);
 
+        mRahmenView.setWatermark(this.getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.BOTTOM_RIGHT);
+
         //set  iamge
         //mRahmenView.setRahmenImage(getDrawable(R.drawable.sample_plot_2));
         /**

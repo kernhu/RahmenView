@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
+        android:baselineAligned="true"
         android:background="@color/colorPrimary"
         android:orientation="horizontal">
 

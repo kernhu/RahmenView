@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.percent.PercentFrameLayout;
+import android.support.percent.PercentRelativeLayout;
 import android.util.AttributeSet;
 
 /**
@@ -14,7 +14,7 @@ import android.util.AttributeSet;
  * Description: This is.. the base layout, init some attrs and views;
  */
 
-public class BaseRahmenView extends PercentFrameLayout {
+public class BaseRahmenView extends PercentRelativeLayout {
 
     private Drawable mRahmenBackgroud;
     private Drawable mRahmenForeground;

@@ -7,10 +7,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 /**
  * Author: Kern
@@ -23,8 +24,20 @@ public class RahmenView extends BaseRahmenView {
     private static final String TAG = "RahmenView";
     private OnRahmenListener listener;
     private ImageView mImageView;
+    private ImageView mWatermarkView;
     private int mParentWidth;
     private int mParentHeight;
+
+    /**
+     * watermark location
+     */
+    public enum WatermarkLocate {
+
+        TOP_LEFT,
+        TOP_RIGHT,
+        BOTTOM_LEFT,
+        BOTTOM_RIGHT
+    }
 
     public RahmenView(@NonNull Context context) {
         super(context);
@@ -61,6 +74,7 @@ public class RahmenView extends BaseRahmenView {
         LayoutParams mParentParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         /** create a imageview and add into PercentFrameLayout*/
         mImageView = new ImageView(getContext());
+        mImageView.setId(R.id.id_rahmen_image);
 
         //mParentParams.gravity = Gravity.CENTER_HORIZONTAL;
         this.addView(mImageView, mParentParams);
@@ -99,6 +113,11 @@ public class RahmenView extends BaseRahmenView {
         mImageView.setVisibility(View.GONE);
 
         /**set size and margin for the iamge*/
+
+
+        /** give a watermark in the image*/
+        mWatermarkView = new ImageView(getContext());
+        mWatermarkView.setVisibility(View.GONE);
     }
 
     @Override
@@ -122,7 +141,7 @@ public class RahmenView extends BaseRahmenView {
         mImageView.post(new Runnable() {
             @Override
             public void run() {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 layoutParams.setMargins(left, top, 0, 0);
                 mImageView.setLayoutParams(layoutParams);
             }
@@ -149,6 +168,36 @@ public class RahmenView extends BaseRahmenView {
 
     public ImageView getImageView() {
         return mImageView;
+    }
+
+
+    public void setWatermark(Drawable watermark, WatermarkLocate locate) {
+
+        mWatermarkView.setVisibility(View.VISIBLE);
+        mWatermarkView.setImageDrawable(watermark);
+        mWatermarkView.setRotation(getRahmenImageRotation());
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0, 20, 20, 60);
+
+        switch (locate) {
+            case TOP_LEFT:
+                layoutParams.addRule(RelativeLayout.ALIGN_TOP, R.id.id_rahmen_image);
+
+                break;
+            case TOP_RIGHT:
+
+                break;
+            case BOTTOM_LEFT:
+
+                break;
+            case BOTTOM_RIGHT:
+                layoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.id_rahmen_image);
+                layoutParams.addRule(RelativeLayout.ALIGN_RIGHT, R.id.id_rahmen_image);
+                break;
+        }
+        mWatermarkView.setLayoutParams(layoutParams);
+        this.addView(mWatermarkView);
+
     }
 
     @Override
@@ -204,6 +253,7 @@ public class RahmenView extends BaseRahmenView {
         super.setRahmenImageY(rahmenImageY);
         setChildMargins((int) (mParentHeight * getRahmenImageX()), (int) (mParentHeight * rahmenImageY));
     }
+
 
     public void addOnRahmenListener(OnRahmenListener listener) {
         this.listener = listener;
