@@ -171,24 +171,25 @@ public class RahmenView extends BaseRahmenView {
     }
 
 
-    public void setWatermark(Drawable watermark, WatermarkLocate locate) {
+    public void setWatermark(Drawable watermark, WatermarkLocate locate,int margin) {
 
         mWatermarkView.setVisibility(View.VISIBLE);
         mWatermarkView.setImageDrawable(watermark);
         mWatermarkView.setRotation(getRahmenImageRotation());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(0, 20, 20, 60);
-
+        layoutParams.setMargins(margin, margin, margin, margin);
         switch (locate) {
             case TOP_LEFT:
                 layoutParams.addRule(RelativeLayout.ALIGN_TOP, R.id.id_rahmen_image);
-
+                layoutParams.addRule(RelativeLayout.ALIGN_LEFT, R.id.id_rahmen_image);
                 break;
             case TOP_RIGHT:
-
+                layoutParams.addRule(RelativeLayout.ALIGN_TOP, R.id.id_rahmen_image);
+                layoutParams.addRule(RelativeLayout.ALIGN_RIGHT, R.id.id_rahmen_image);
                 break;
             case BOTTOM_LEFT:
-
+                layoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.id_rahmen_image);
+                layoutParams.addRule(RelativeLayout.ALIGN_LEFT, R.id.id_rahmen_image);
                 break;
             case BOTTOM_RIGHT:
                 layoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.id_rahmen_image);
