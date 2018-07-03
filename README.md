@@ -82,7 +82,7 @@ RahmenViev像一个相框模版，你可以用来展示广告图片或者照片�
 ### Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.KernHu:RahmenView:v1.1'
+	        implementation 'com.github.KernHu:RahmenView:v1.2'
 	}
 	
 ## III: Contact me
