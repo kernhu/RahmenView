@@ -1,7 +1,7 @@
 # RahmenView
-RahmenView looks like a photo frame.You can use it to show your AD or Photos.It's base on PercentFrameLayout, so it ealily to fit any different resolution screens.It also can use Glide to load online picture.
+RahmenView looks like a photo frame.You can use it to show your AD or Photos.It's base on PercentFrameLayout, so it ealily to fit any different resolution screens.It also can use Glide to load online picture and add watermark. 
 
-RahmenViev像一个相框模版，你可以用来展示广告图片或者照片，它基于百分比布局，因此可以很好的适配一些不同分辨率的屏幕。它还可以通过Glide来加载网络图片。
+RahmenViev像一个相框模版，你可以用来展示广告图片或者照片，它基于百分比布局，因此可以很好的适配一些不同分辨率的屏幕。它还可以通过Glide来加载网络图片。可以添加水印效果。
 
 ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10010.gif)  
 ![](https://github.com/KernHu/RahmenView/raw/master/screenshot/10011.gif)  
@@ -63,6 +63,9 @@ RahmenViev像一个相框模版，你可以用来展示广告图片或者照片�
                 .load(url)
                 .placeholder(R.drawable.sample_plot_1)
                 .into(mRahmenView.getImageView());
+		
+	//add watermark
+	mRahmenView.setWatermark(getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.BOTTOM_RIGHT, 20);
 
 
 ## II: Add RahmenView to your project
