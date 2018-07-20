@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -204,7 +203,12 @@ public class RahmenView extends BaseRahmenView {
     @Override
     public void setRahmenBackgroud(Drawable rahmenBackgroud) {
         super.setRahmenBackgroud(rahmenBackgroud);
-        this.setForeground(null);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            this.setForeground(null);
+        }else{
+            Log.e(TAG, "the version is under 6.0");
+        }
         this.setBackgroundDrawable(getRahmenBackgroud());
     }
 
