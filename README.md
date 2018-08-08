@@ -65,7 +65,7 @@ RahmenViev像一个相框模版，你可以用来展示启动页广告图片或�
                 .into(mRahmenView.getImageView());
 		
 	//add watermark
-	mRahmenView.setWatermark(getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.BOTTOM_RIGHT, 20);
+	mRahmenView.setWatermark(getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.BOTTOM_RIGHT, new int[]{30,30,30,30});
 ```
 
 ## II: Add RahmenView to your project
