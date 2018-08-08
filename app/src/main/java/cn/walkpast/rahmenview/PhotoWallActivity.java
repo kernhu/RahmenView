@@ -25,10 +25,9 @@ public class PhotoWallActivity extends AppCompatActivity {
         mRahmenView2 = findViewById(R.id.rahmen_view_2);
         mRahmenView3 = findViewById(R.id.rahmen_view_3);
 
-
-        mRahmenView1.setWatermark(this.getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.TOP_LEFT,50);
-        mRahmenView2.setWatermark(this.getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.TOP_RIGHT,10);
-        mRahmenView3.setWatermark(this.getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.BOTTOM_LEFT,10);
+        mRahmenView1.setWatermark(this.getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.TOP_LEFT, new int[]{30, 30, 30, 30});
+        mRahmenView2.setWatermark(this.getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.TOP_RIGHT, new int[]{30, 30, 30, 30});
+        mRahmenView3.setWatermark(this.getResources().getDrawable(R.drawable.ad_lable), RahmenView.WatermarkLocate.BOTTOM_LEFT, new int[]{30, 30, 30, 30});
     }
 
 }

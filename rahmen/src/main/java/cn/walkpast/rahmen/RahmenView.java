@@ -74,6 +74,7 @@ public class RahmenView extends BaseRahmenView {
         /** create a imageview and add into PercentFrameLayout*/
         mImageView = new ImageView(getContext());
         mImageView.setId(R.id.id_rahmen_image);
+        setRahmenImageRotation(getRahmenImageRotation());
 
         //mParentParams.gravity = Gravity.CENTER_HORIZONTAL;
         this.addView(mImageView, mParentParams);
@@ -106,7 +107,6 @@ public class RahmenView extends BaseRahmenView {
         /**set the image for the ImageView*/
         setRahmenImage(getRahmenImage());
         /**set the rotation the value(0~360,0~-360)*/
-        setRahmenImageRotation(getRahmenImageRotation());
         mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         mImageView.bringToFront();
         mImageView.setVisibility(View.GONE);
@@ -170,13 +170,13 @@ public class RahmenView extends BaseRahmenView {
     }
 
 
-    public void setWatermark(Drawable watermark, WatermarkLocate locate,int margin) {
+    public void setWatermark(Drawable watermark, WatermarkLocate locate, int[] margin) {
 
         mWatermarkView.setVisibility(View.VISIBLE);
         mWatermarkView.setImageDrawable(watermark);
         mWatermarkView.setRotation(getRahmenImageRotation());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(margin, margin, margin, margin);
+        layoutParams.setMargins(margin[0], margin[1], margin[2], margin[3]);
         switch (locate) {
             case TOP_LEFT:
                 layoutParams.addRule(RelativeLayout.ALIGN_TOP, R.id.id_rahmen_image);
@@ -206,7 +206,7 @@ public class RahmenView extends BaseRahmenView {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             this.setForeground(null);
-        }else{
+        } else {
             Log.e(TAG, "the version is under 6.0");
         }
         this.setBackgroundDrawable(getRahmenBackgroud());
