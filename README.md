@@ -82,7 +82,7 @@ RahmenViev像一个相框模版，你可以用来展示启动页广告图片或�
 ### Step 2. Add the dependency
 ```
 	dependencies {
-	         implementation 'com.github.KernHu:RahmenView:v1.3'
+	         implementation 'com.github.KernHu:RahmenView:v1.4'
 	}
 ```	
 ## III: Contact me
